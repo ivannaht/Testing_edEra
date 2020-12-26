@@ -1,5 +1,6 @@
 package com.edEra1;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -14,6 +15,8 @@ public class FirstTest {
 ChromeDriver driver = new ChromeDriver();
 
 driver.get("https://www.ed-era.com/");
+String title = driver.getTitle();
+Assert.assertTrue(title.equals("EdEra – студія онлайн-освіти"));
 
 driver.quit();
     }
