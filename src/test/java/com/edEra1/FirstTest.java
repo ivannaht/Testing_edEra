@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Random;
+
 public class FirstTest {
 
     @Test
@@ -28,6 +30,11 @@ Assert.assertTrue(title.equals("EdEra – студія онлайн-освіти
         body.findElement(By.cssSelector("[href=\"https://courses.ed-era.com/register\"]")).click();
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated (By.id ("register")));
+
+        Random random = new Random();
+        int r = random.nextInt(500)+5;
+        String ranmdomEmail = "asdf"+r+"@.i.ua";
+        driver.findElement(By.id("register-email")).sendKeys(ranmdomEmail);
 
 driver.quit();
     }
