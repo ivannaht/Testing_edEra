@@ -14,6 +14,11 @@ import java.util.Random;
 
 public class FirstTest {
 
+    RandomGenerator randomStringName = new RandomGenerator();
+    String fullName = randomStringName.generatingRandomStringName();
+    RandomGenerator randomStringEmail = new RandomGenerator();
+    String email = randomStringEmail.generatingRandomStringEmail();
+
     @Test
     public void FirstTest() {
 
@@ -31,11 +36,17 @@ Assert.assertTrue(title.equals("EdEra – студія онлайн-освіти
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated (By.id ("register")));
 
-        Random random = new Random();
-        int r = random.nextInt(500)+5;
-        String ranmdomEmail = "asdf"+r+"@.i.ua";
-        driver.findElement(By.id("register-email")).sendKeys(ranmdomEmail);
+        driver.findElement(By.id("register-email")).sendKeys(email);
 
-driver.quit();
+        driver.findElement(By.id("register-name")).sendKeys(fullName);
+
+        driver.quit();
     }
 }
+
+/*Random random = new Random();
+        int r = random.nextInt(500)+5;
+        String ranmdomEmail = "asdn"+r+"@.i.ua";
+        driver.findElement(By.id("register-email")).sendKeys(ranmdomEmail);
+        driver.findElement(By.id("register-name")).sendKeys("Alla Sedan");
+        */
